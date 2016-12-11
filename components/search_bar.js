@@ -4,6 +4,11 @@ export default ({ query }) =>
 <div className="search-bar">
   <input className="search-box" type="text" placeholder="Search..."
     onChange={onSearchChange}
+    onKeyPress={event => {
+      if (event.charCode == 13) {
+        window.location = `/search?for=${event.target.value}`
+      }
+    }}
   />
   <style>{`
     .search-box {

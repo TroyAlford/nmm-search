@@ -18,14 +18,30 @@ export default express()
   .then(addons =>  response.status(200).send({ addons, query }))
   .catch(console.error)
 })
-.use('/download/:id', (request, response) => {
+.use('/download/nmm/:id', (request, response) => {
   const id = request.params.id
-  fetch(`http://www.nexusmods.com/skyrimspecialedition/ajax/downloadwithnmm?id=${id}`)
-  .then(response => response.text())
-  .then(html => cheerio.load(html))
-  .then(parser => parser('meta[http-equiv="refresh"]').first().attr('content'))
-  .then(meta => meta.replace(/^0;url='/, ''))
-  .then(url => response.redirect(url))
+  const url = `http://www.nexusmods.com/skyrimspecialedition/ajax/downloadwithnmm?id=${id}`
+  response.redirect(url)
+  // fetch(`http://www.nexusmods.com/skyrimspecialedition/ajax/downloadwithnmm?id=${id}`)
+  // .then(response => response.text())
+  // .then(html => cheerio.load(html))
+  // .then(parser => parser('meta[http-equiv="refresh"]').first().attr('content'))
+  // .then(meta => meta.replace(/^0;url='/, ''))
+  // .then(url => response.redirect(url))
+})
+.use('/download/manual/:id', (request, response) => {
+  const id = request.params.id
+  const url = `http://www.nexusmods.com/skyrimspecialedition/ajax/downloadfile?id=${id}`
+  response.redirect(url)
+  // fetch(url)
+  // .then(response => response.text())
+  // .then(html => { console.log(html); return cheerio.load(html) })
+  // .then(parser => parser('script').first().text())
+  // .then(script => script.replace(/(^\s*window.location.href = ")|("\s*$)/, ''))
+  // .then(url => {
+  //   console.log(url)
+  //   response.redirect(url)
+  // })
 })
 
 function search(options = {}, addons = []) {
@@ -55,7 +71,7 @@ function search(options = {}, addons = []) {
   .then(addons => addons.map(addon => {
     const dateFormat = 'h:mm, D MMM YYYY'
     const trim = string => string.replace(/(^[\s]*)|([\s]*$)/g, '')
-    const toDate = string => moment(string, dateFormat).toDate()
+    const toDate = string => moment(string, dateFormat).fromNow()
 
     return {
       ...addon,
