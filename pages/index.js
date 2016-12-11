@@ -2,14 +2,14 @@ import React from 'react'
 import Page from '../components/page'
 
 export default class Index extends React.Component {
-	componentWillMount() {
+  componentWillMount() {
 
-	}
-	render() {
-		return (
-			<Page>
+  }
+  render() {
+    return (
+      <Page>
 
-			</Page>
-		)
-	}
+      </Page>
+    )
+  }
 }

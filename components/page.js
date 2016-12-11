@@ -7,27 +7,27 @@ import LAYOUT from '../config/layout'
 import COLORS from '../config/colors'
 
 export default ({ children = [] }) => (
-	<div className="page">
-		<Head>
-			{style}
-		</Head>
+  <div className="page">
+    <Head>
+      {style}
+    </Head>
 
-		<Header />
-		{children}
-		<Footer />
-	</div>
+    <Header />
+    {children}
+    <Footer />
+  </div>
 )
 
 const style = <style>{`
-	* {
-		box-sizing: border-box;
-	}
-	html, body {
-		margin: 0;
-		padding: 0;
-	}
-	body {
-		background: ${COLORS.background};
-		padding-top: ${LAYOUT.navbar.height};
-	}
+  * {
+    box-sizing: border-box;
+  }
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    background: ${COLORS.background};
+    padding-top: ${LAYOUT.navbar.height};
+  }
 `}</style>

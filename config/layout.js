@@ -1,5 +1,5 @@
 export default {
-	navbar: {
-		height: '40px',
-	}
+  navbar: {
+    height: '40px',
+  }
 }
