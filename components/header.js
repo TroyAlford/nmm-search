@@ -11,7 +11,7 @@ export default () =>
 		{style}
 	</div>
 
-const style = <style jsx>{`
+const style = <style>{`
 	.header {
 		background: url(${IMAGES.patterns.dark}) ${COLORS.elements};
 		border-bottom: 1px solid #999;
