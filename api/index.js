@@ -80,8 +80,6 @@ function search(options = {}, addons = []) {
         ...addon.author,
       },
       id: addon.url.split('/').pop(),
-      downloads: Number(addon.downloads.replace(',', '')),
-      likes: Number(addon.likes.replace(',', '')),
       title: trim(addon.title),
       updated: toDate(addon.updated.replace(/updated /, '')),
     }

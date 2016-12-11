@@ -36,15 +36,14 @@ export default class Index extends Component {
                 <p>{addon.description}</p>
                 <div className="info-bar">
                   <a href={addon.author.profile}>
-                    <i className="fa fa-user"></i>
-                    {addon.author.name}
+                    <i className="fa fa-user"></i>{' '}{addon.author.name}
                   </a>
                   {' | '}
-                  <i className="fa fa-download"></i> {addon.downloads}
+                  <i className="fa fa-download"></i>{' '}{addon.downloads}
                   {' | '}
-                  <i className="fa fa-thumbs-up"></i> {addon.likes}
+                  <i className="fa fa-thumbs-up"></i>{' '}{addon.likes}
                   {' | '}
-                  <i className="fa fa-calendar-o"></i> {addon.updated}
+                  <i className="fa fa-calendar-o"></i>{' '}{addon.updated}
                 </div>
               </div>
               <div className="actions">
